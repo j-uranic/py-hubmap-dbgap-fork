@@ -399,7 +399,7 @@ def submission(
     print("Creating helper scripts")
     for hubmap_id in tqdm(hubmap_ids):
         commands = f"# {hubmap_id}\n"
-        for index, row in dataset.iterrows():
+        for index, row in dataset.itertuples(): 
             if prepend_sample_id:
                 datum.extend(["fastq", f'{hubmap_id}-{row["filename"]}', row["md5"]])
                 commands = f'{commands}cp -v "{dataset_directory}/{row["filename"]}" ./{hubmap_id}-{row["filename"]}\n'
