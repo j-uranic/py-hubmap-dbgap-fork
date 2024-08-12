@@ -409,7 +409,11 @@ def submission(
 
         __print_to_file(bash_script_file, commands)
         data.append(datum)
-
+        
+##################################
+# CREATE upload.sh FILE - START
+##################################
+    
     print("Creating upload script")
     bash_script_file = f"{dbgap_study_id}/upload.sh"
     commands = """#!/bin/bash
@@ -427,6 +431,10 @@ fi
     """
 
     __print_to_file(bash_script_file, commands)
+    
+##################################
+# CREATE upload.sh FILE - END
+##################################
 
     print("Creating dataframe")
     df = pd.DataFrame(data)
